@@ -1,0 +1,42 @@
+TP1 : Pierre et Xavier
+	2a
+		complexité :
+
+			(Soit n le rang de la suite que l'on calcule)
+			(Modèle : On s'intéresse au opération +-*/ )
+			(Les coûts des opérations +-*/ sur les rationnel sont tous constant( indépendante de n ) )
+
+	 			 - suite u en Rationnel : O(n)
+	 			 - suite v en Rationnel : O(n)
+
+	 			 -suite u en Double : O(n)
+	 			 -suite v en Double : O(n)
+
+	2b 
+		Comparaison des résultats :
+
+			 Quand on veut compare la valeur approchée des résultats de suite en RationnelLes avec les résultats des suites en Double, on s'aperçoit qu'un écart existe, il augmente de plus en plus vite à mesure que l'on avance dans les suites.Avec des fractions en Double, à force d'approximer les approximation, les résultats deviennent franchement faux à partir d'un certain rang.
+
+	3a 
+		On choisit b = 10, notation décimal donc 
+
+	3c
+		Complexité : 
+		(Soit n la taille des données ( taille du tableau de int) en entrée)
+			AdditionAux : O(n)
+			SoustractionAux O(n)
+			MultiplierAux  O(n²)
+			Addition  = T(additionAux) = O(n)
+			Soustraction : T(soustractionAux) = O(n)
+			Multiplication : T(MultiplierAux) = O(n²)
+			Division : non réalisé
+
+
+	3f
+		Ecrite, mais ne marche pas
+
+
+	3e 
+		Manque de la fonction diviser 
+
+			 
