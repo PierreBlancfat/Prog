@@ -2,6 +2,7 @@ package Jeu;
 
 import Treads.ThreadAffichage;
 import Treads.ThreadCalculs;
+import IHM.Fenetre;
 
 public class Jeu extends Thread {
 
@@ -39,11 +40,21 @@ public class Jeu extends Thread {
 				}
 			}
 		}
-		
+	}
+	
+	public synchronized void afficheConsole(){
+		this.grille.affiche();
 	}
 	
 	public synchronized void affiche(){
-		this.grille.affiche();
+		
+		for ( int x = 0; x<= this.grille.nbColonnes; x++){
+			for ( int y = 0; y<= this.grille.nbLignes; y++){
+				
+				
+			}
+		
+		}
 	}
 	
 	public void run(){
@@ -52,7 +63,6 @@ public class Jeu extends Thread {
 		while(true){	
 			calc.start();
 			affichage.start();
-
 		}
 	}
 }

@@ -10,13 +10,14 @@ public class ThreadAffichage extends Thread{
 		this.j= j;
 	}
 	
-	public void run(){
+	public  void run(){
 		while(!interrupted())
-		{j.affiche();
-		temps++;
-		System.out.println("Temps : "+temps);
+		{
+				j.afficheConsole();
+				temps++;
+				System.out.println("Temps : "+temps);	
 		}
-		return;
+		
 		
 	}
 	

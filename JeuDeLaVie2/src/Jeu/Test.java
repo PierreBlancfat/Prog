@@ -20,16 +20,17 @@ public class Test {
 		StructuresVaisseaux.vaisseauLeger(26, 6, g);
 		StructuresVaisseaux.vaisseauLeger(3, 20, g);
 		StructuresStables.Bateau(24, 28, g);
-		StructuresStables.Ruche(28, 28, g);
+		StructuresStables.Ruche(28, 29, g);
 		StructuresPeriodiques.galaxie(7, 8, g);
-		StructuresPeriodiques.pentadecathlon(13, 33, g);
-		StructuresPeriodiques.horloge(22, 25, g);;
-		StructuresPeriodiques.horloge(18, 33, g);;
-		
-		//Lancement du jeu
+		StructuresPeriodiques.pentadecathlon(13, 20, g);
+	//	StructuresPeriodiques.horloge(22, 20, g);
+		StructuresPeriodiques.horloge(18, 2, g);
+		StructuresVaisseaux.vaisseauLeger(18, 10, g);
+
+//		//Lancement du jeu
 		jeu.start();
 
-// sans thread
+ //sans thread
 //		int temps = 0;
 //		while(true){
 //			jeu.affiche();
