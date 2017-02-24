@@ -91,11 +91,11 @@ public class Grille {
 					return false;
 		}
 		else 
-			throw new Exception("La case demandé est en dehors de la grille Ocu");
+			throw new Exception("La case demandé est en dehors de la grille");
 	}
 	
 	
-	public int nbVoisins(int ligne, int colonne) throws Exception{
+	public int nbVoisins(int ligne, int colonne){
 		int nbVoisin = 0;
 		if (estDansLaGrille(ligne, colonne))
 		{
@@ -104,7 +104,9 @@ public class Grille {
 			for ( i = colonne-1; i <= colonne+1; i++){
 				if (estDansLaGrille(ligne-1, i)){
 					if (grille[ligne-1][i] == true){
-					nbVoisin++;}}
+					nbVoisin++;
+					}
+				}
 			}
 			i = colonne;
 		    // vérification de colonne + 1
@@ -113,8 +115,9 @@ public class Grille {
 								if (grille[ligne+1][i] == true){
 							nbVoisin++;
 								}
-			}			}
-						
+							}
+						}
+				// vérification case du dessus
 			   	if ( estDansLaGrille(ligne, colonne + 1)){
 			   			if (grille[ligne][colonne + 1] == true)
 						  {
@@ -122,6 +125,7 @@ public class Grille {
 						  }
 			   	
 				}
+			   	//vérification case du dessous
 				if ( estDansLaGrille(ligne, colonne -1)){
 						if  (grille[ligne][colonne - 1] == true)
 						{
@@ -132,7 +136,8 @@ public class Grille {
 		}
 		else
 		{
-			throw new Exception("La case demandé est en dehors de la grille nb voisin"+ligne+" "+colonne);
+			System.out.println("La case demandé est en dehors de la grille nb voisin"+ligne+" "+colonne);
+			return nbVoisin;
 		}
    
 	}	

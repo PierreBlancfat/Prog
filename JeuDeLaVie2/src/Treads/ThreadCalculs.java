@@ -11,18 +11,16 @@ public class ThreadCalculs extends Thread {
 	}
 	
 	public  void run(){
-		try{
 			while(!interrupted())
 				{
-					j.avance();
-					sleep(50);
+					try {
+						j.avance();
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					System.out.println("calculs fini");
-		}       }
-		catch( InterruptedException e){
-			
-		} catch (Exception e) {
-			System.out.println("Calcul interrompu");
-		}  
+		}        
 	} 
 }
 	

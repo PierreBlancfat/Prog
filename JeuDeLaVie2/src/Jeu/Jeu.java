@@ -1,24 +1,31 @@
 package Jeu;
-
 import Treads.ThreadAffichage;
 import Treads.ThreadCalculs;
+import java.awt.Button;
+import java.awt.event.ActionListener;
+
 import IHM.Fenetre;
 
 public class Jeu extends Thread {
 
 	public Grille grille;
+	public Fenetre fenetre;
+	public Thread calc = new ThreadCalculs(this);
+	public Thread affichage = new ThreadAffichage(this);	
 	private String etat;
 	private int temps;	
+	public boolean suspended = false;
 	
-	public Jeu(Grille grille){
+	public Jeu(Grille grille, Fenetre fenetre){
 	
 		this.grille = grille;
+		this.fenetre = fenetre;
 		temps = 0;
+
 	}
 	
-
 	public synchronized void avance() throws Exception{
-		
+	
 	Grille g = new Grille(this.grille.nbLignes, this.grille.nbColonnes);
     this.grille.copyGrilleDans(g.grille);
 		// On parcourt toute la grille
@@ -40,29 +47,24 @@ public class Jeu extends Thread {
 				}
 			}
 		}
+		wait();
 	}
 	
-	public synchronized void afficheConsole(){
+	public void afficheConsole(){
 		this.grille.affiche();
 	}
 	
-	public synchronized void affiche(){
-		
-		for ( int x = 0; x<= this.grille.nbColonnes; x++){
-			for ( int y = 0; y<= this.grille.nbLignes; y++){
-				
-				
-			}
-		
-		}
+	public synchronized void affiche() throws InterruptedException{
+		this.fenetre.repaint();
+		notifyAll();
 	}
 	
+	
 	public void run(){
-		Thread calc = new ThreadCalculs(this);
-		Thread affichage = new ThreadAffichage(this);
-		while(true){	
-			calc.start();
-			affichage.start();
-		}
+		calc.start();
+		affichage.start();
 	}
+
+	
+
 }

@@ -10,12 +10,24 @@ public class ThreadAffichage extends Thread{
 		this.j= j;
 	}
 	
-	public  void run(){
+	public void run(){
 		while(!interrupted())
 		{
-				j.afficheConsole();
+				try {
+					j.affiche();
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+		
+				try {
+					sleep(500);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				temps++;
-				System.out.println("Temps : "+temps);	
+				System.out.println("Temps : "+temps);
 		}
 		
 		
