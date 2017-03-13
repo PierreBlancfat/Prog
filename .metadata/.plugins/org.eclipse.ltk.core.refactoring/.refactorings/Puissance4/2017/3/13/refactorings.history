@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;&apos; to &apos;Plateau.Plateau.nbColonnes&apos;&#x0D;&#x0A;- Original project: &apos;Puissance4&apos;&#x0D;&#x0A;- Destination element: &apos;Plateau.Plateau.nbColonnes&apos;&#x0D;&#x0A;- Original element: &apos;Plateau.Plateau.nbLignes&apos;" description="Copy field" destination="/src&lt;Plateau{Plateau.java[Plateau^nbColonnes" element1="/src&lt;Plateau{Plateau.java[Plateau^nbLignes" flags="589830" id="org.eclipse.jdt.ui.copy" members="1" policy="org.eclipse.jdt.ui.copyMembers" stamp="1490986834154" version="1.0"/>
+</session>
