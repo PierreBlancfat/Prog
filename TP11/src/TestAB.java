@@ -23,7 +23,7 @@ public class TestAB {
 		
 		//I.dessine();
 		System.out.println(I.nbNoeuds());
-		System.out.println(I.nbFeuille());
+		System.out.println(I.nbFeuilles());
 		System.out.println(I.parcoursProfondeurPrefixe());
 		System.out.println(I.parcoursProfondeurInfixe());
 		System.out.println(I.parcoursProfondeurPostfixe());

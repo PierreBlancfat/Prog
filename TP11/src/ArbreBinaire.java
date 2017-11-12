@@ -179,20 +179,20 @@ public class ArbreBinaire<E extends Comparable<E>>{
 	}	
 	
 	
-	public int nbFeuille(){
+	public int nbFeuilles(){
 		if ( this.estVide())
 			return 0;
 		//SIles deux fils ne sont pas vide
 		else if (!this.filsDroit().estVide() && !this.filsGauche().estVide()){
-			return this.filsGauche().nbFeuille() + this.filsDroit().nbFeuille();
+			return this.filsGauche().nbFeuilles() + this.filsDroit().nbFeuilles();
 		}
 		// Si le fils gauche n'est pas vide
 		else if (!this.filsGauche().estVide()){
-			return this.filsGauche().nbFeuille();
+			return this.filsGauche().nbFeuilles();
 		}
 		// Si le fils droit n'est pas  vide
 		else if (!this.filsDroit().estVide()){
-			return this.filsDroit().nbFeuille();
+			return this.filsDroit().nbFeuilles();
 		}
 		else
 			return 1;
@@ -325,38 +325,27 @@ public class ArbreBinaire<E extends Comparable<E>>{
 		}
 	}
 	
-	
-	public boolean estABR(){
-		
-		return estABRAux(this.noeud.element);
-		
+	public boolean estAbr(){
+		return estAbr(null, null);
 	}
-
-	public boolean estABRAux(E pere){
-		boolean a = true;
-		boolean b = true;
+	
+	public boolean estAbr(E min,E max){
+		boolean a = true,b = true;
 		
-		if(!this.estVide()){
-			// Si les deux fils ne sont pas vides
-			if ( !this.filsGauche().estVide()){
-				//Si la la racine du fils gauche respecte bien la propriété des ABR
-				if ( this.filsGauche().noeud.element.compareTo(pere) < 0)
-					a = this.filsGauche().estABRAux( this.filsGauche().noeud.element);
-				// sinon on return false
-
-				else a = false;
-				}
-			if(!this.filsDroit().estVide()){
-				//Si la la racine du fils gauche respecte bien la propriété des ABR
-				if ( this.filsDroit().noeud.element.compareTo(pere) > 0)
-					b =  this.filsDroit().estABRAux(this.filsDroit().noeud.element);
-				// sinon on return false		if ( this.estVide())
-				else b = false;
-				
-				}
-			return b && a;
-			}
-		return true;
+		if ( this.estVide())
+			return true;
+		else 
+			if (min != null)
+				if (this.racine().compareTo(min) < 0 )
+					a = false;
+			if (max != null)
+				if (this.racine().compareTo(max) > 0)
+					b = false;
+			if ( a&&b)
+				return this.filsDroit().estAbr(this.racine(), max) && this.filsGauche().estAbr(min,this.racine());
+			else 
+				return false;
+			
 	}
 	
     public boolean estAbr2(){

@@ -26,7 +26,7 @@ public class ABR<E extends Comparable<E>> extends ArbreBinaire<E> {
 	public ABR<E> filsGauche()
 	{
 		ABR<E> a=new ABR<E>();
-		a.noeud= this.noeud.filsGauche;
+		a.noeud = this.noeud.filsGauche;
 		return a;
 		// si on avait deja le constructeur de la question 4, on pourrait ecrire :
 		//return new ABR<E>(super.filsGauche());
@@ -93,9 +93,8 @@ public class ABR<E extends Comparable<E>> extends ArbreBinaire<E> {
  	 }
 	
 	public boolean estAvl(){
-		if (this.hauteur() - this.hauteurMin() <= 1 && this.estABR())
-			return true;
-		else return false;
+		return this.hauteur() - this.hauteurMin() <= 1 && this.estAbr();
+
 		
 		
 	}
