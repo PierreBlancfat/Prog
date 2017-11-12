@@ -62,6 +62,36 @@ public class ABR<E extends Comparable<E>> extends ArbreBinaire<E> {
 	}
 	
 	
+	public ArbreBinaire<E>.Cellule supprimer( E e){ 
+ 	   if (this.noeud==null) return this.noeud;// l’objet o n’est pas trouvé
+ 	   else{
+ 	      if (this.noeud.element.compareTo(e)==0)
+ 	    	  return supprimerAux(this.noeud);
+ 	      else if(this.noeud.element.compareTo(e)>0) this.noeud.filsGauche = this.filsGauche().supprimer(e); 
+ 	           else 
+ 	        	   this.noeud.filsDroit = this.filsDroit().supprimer(e)
+ 	       ;return this.noeud;
+ 	   }
+ 	   } 
+ 
+ 	   ArbreBinaire<E>.Cellule supprimerAux (ArbreBinaire<E>.Cellule c){ 
+ 	   if(c.filsGauche==null) return c = c.filsDroit; 
+ 	   else
+ 	      if(c.filsDroit==null) return c = c.filsGauche;
+ 	      else{ 
+ 	    	  ArbreBinaire<E>.Cellule  c1 = c.filsGauche;
+ 	    	  ArbreBinaire<E>.Cellule  pere = c;
+ 	         while(c1.filsDroit!=null) {
+ 	             pere = c1;
+ 	             c1 = c1.filsDroit;
+ 	         }
+ 	         c.element = c1.element;
+ 	         if(pere == c) pere.filsGauche = c1.filsGauche;
+ 	         else pere.filsDroit = c1.filsGauche;
+ 	         return c;
+ 	      }
+ 	 }
+	
 	public boolean estAvl(){
 		if (this.hauteur() - this.hauteurMin() <= 1 && this.estABR())
 			return true;
